@@ -68,10 +68,15 @@ public class Controller {
         assignedCustomers = customerRepo.findAllByProgramManager_Name(pm.getName());
         //emailsScheduled = emailRepo.findAllByCustomer(pm.getCustomer());
 
-//        for(Customer x : assignedCustomers){
-//
-//
-//        }
+        List<String> coUsed = new ArrayList<>();
+
+        for(Customer x : assignedCustomers){
+            if(x.isActive() && x.getEmailsSent() == 0){
+                coUsed.add(x.getName());
+            }
+
+        }
+
 
 
         //model.addAttribute(assignedCustomers);
